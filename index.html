@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WNR Marketing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+.werkwijze-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.werkwijze-tekst {
+  flex: 1 1 55%;
+}
+
+.werkwijze-afbeelding {
+  flex: 1 1 35%;
+  text-align: right;
+}
+
+.werkwijze-afbeelding img {
+  max-width: 100%;
+  height: auto;
+  width: 300px; /* Pas aan indien kleiner/groter gewenst */
+  border-radius: 8px;
+}
+@media (max-width: 768px) {
+  .werkwijze-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .werkwijze-afbeelding {
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .werkwijze-afbeelding img {
+    width: 80%;
+  }
+}
+ * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fff;
+      color: #111;
+      line-height: 1.6;
+      padding-top: 80px;
+
+      scrollbar-width: thin;
+      scrollbar-color: #f0a500 #111;
+    }
+    body::-webkit-scrollbar {
+      width: 8px;
+    }
+    body::-webkit-scrollbar-track {
+      background: #111;
+    }
+    body::-webkit-scrollbar-thumb {
+      background-color: #f0a500;
+      border-radius: 4px;
+      border: 2px solid #111;
+    }
+    body::-webkit-scrollbar-thumb:hover {
+      background-color: #c17a00;
+    }
+
+    nav {
+      width: 100%;
+      background-color: #111;
+      color: white;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      height: 80px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    nav .logo img {
+      height: 80px;
+      display: block;
+    }
+
+    nav .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+      line-height: 80px;
+    }
+
+    nav .nav-links a:hover {
+      color: #f0a500;
+    }
+
+    .scroll-progress-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 999;
+      pointer-events: none;
+    }
+    .scroll-progress-bar-vertical {
+      width: 6px;
+      background-color: #f4a261;
+      height: 0%;
+      border-radius: 3px;
+      margin-top: 20px;
+      transition: height 0.2s ease-out;
+      pointer-events: none;
+    }
+    .scroll-to-top {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      margin-top: auto;
+      margin-bottom: 20px;
+      font-size: 12px;
+      color: #f4a261;
+      cursor: pointer;
+      text-align: center;
+      pointer-events: auto;
+      transition: opacity 0.3s;
+    }
+    .scroll-to-top:hover {
+      opacity: 0.7;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fff;
+      color: #111;
+      overflow-x: hidden;
+    }
+
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 5px;
+      background: #f4a261;
+      width: 0%;
+      z-index: 2000;
+      transition: width 0.25s ease-out;
+    }
+
+    .scroll-progress-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 999;
+      pointer-events: none;
+    }
+    .scroll-progress-bar-vertical {
+      width: 6px;
+      background-color: #f4a261;
+      height: 0%;
+      border-radius: 3px;
+      margin-top: 20px;
+      transition: height 0.2s ease-out;
+      pointer-events: none;
+    }
+    .scroll-to-top {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      margin-top: auto;
+      margin-bottom: 20px;
+      font-size: 12px;
+      color: #f4a261;
+      cursor: pointer;
+      text-align: center;
+      pointer-events: auto;
+      transition: opacity 0.3s;
+    }
+    .scroll-to-top:hover {
+      opacity: 0.7;
+    }
+
+    nav {
+      background-color: #111;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3)
+    }
+    nav .logo img {
+      height: 50px;
+      display: block;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover {
+      color: #f4a261;
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 25px;
+      height: 20px;
+      cursor: pointer;
+    }
+    .hamburger div {
+      height: 3px;
+      background: #fff;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 65px;
+        right: 2rem;
+        background: #111;
+        flex-direction: column;
+        width: 180px;
+        padding: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        display: none;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    header {
+      height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      overflow: hidden;
+    
+      background: url('images/wnr-marketing-logo.png') no-repeat center center / contain;
+      z-index: 0;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      color: #fff;
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .hero-content p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    .btn-primary {
+      background-color: #f4a261;
+      color: #111;
+      padding: 1rem 2rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .btn-primary:hover {
+      background-color: #e07b3d;
+    }
+
+    section {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    section p {
+      font-size: 1.125rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .card {
+      background-color: #f9f9f9;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+ position: relative;
+  z-index: 1;
+
+
+    }
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('images/achtergrond.png');
+  background-color: ; /* tijdelijk zichtbaar maken */
+  background-size: cover;
+  background-position: center;
+  opacity: 0.4;
+  z-index: 0;
+  border-radius: 16px;
+}
+
+.card > * {
+  position: relative;
+  z-index: 1;
+}
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .case-item {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .case-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .case-item a {
+      display: block;
+      position: relative;
+      text-decoration: none;
+      color: inherit;
+    }
+    .case-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(30, 30, 30, 0.6);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.4s ease-in-out;
+      font-size: 1.25rem;
+      font-weight: 600;
+      text-align: center;
+      padding: 1rem;
+    }
+    .case-item:hover img {
+      transform: scale(1.02);
+    }
+    .case-item:hover .case-overlay {
+      opacity: 1;
+    }
+
+    footer {
+      background-color: #111;
+      color: #fff;
+      text-align: center;
+      padding: 2rem;
+    }
+    footer a {
+      color: #fff;
+      text-decoration: underline;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="scroll-progress-container">
+    <div class="scroll-progress-bar-vertical" id="scroll-progress-vertical"></div>
+    <div class="scroll-to-top" onclick="scrollToTop()">Scroll to top</div>
+  </div>
+
+  <nav>
+    <a href="index.html" class="logo">
+      <img src="images/homepagelogo.png" alt="WNR Marketing Logo" />
+    </a>
+    <div class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="#diensten">Diensten</a>
+      <a href="#cases">Case Studies</a>
+      <a href="overons.html">Over WNR Marketing</a>
+    </div>
+  </nav>
+
+  <header id="top">
+    <div class="hero-content">
+      <h1>WNR Marketing: Jouw raket naar online groei</h1>
+      <p>Wij helpen je bedrijf groeien met slimme social media campagnes — afgestemd op jouw identiteit en ambities.</p>
+      <button class="btn-primary">Plan een gratis gesprek</button>
+    </div>
+  </header>
+
+  <section id="diensten">
+    <h2>Onze diensten</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Meta Advertising</h3>
+        <p>Effectieve campagnes op Facebook & Instagram. Gericht op verkoop, retentie en merkbekendheid.</p>
+      </div>
+      <div class="card">
+        <h3>Strategisch Meedenken</h3>
+        <p>We bouwen geen campagnes zonder overleg. Alles wordt afgestemd op jouw visie en marktpositie.</p>
+      </div>
+      <div class="card">
+        <h3>Offline & Online Groei</h3>
+        <p>We denken verder dan social media. Wij helpen je ook met offline kansen en merkbeleving.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="werkwijze">
+<div class="werkwijze-container">
+    <div class="werkwijze-tekst">
+      <h2>Onze aanpak</h2>
+      <p>
+        Onze kracht ligt in aandacht. Elk bedrijf is uniek — en dat zie je terug in onze werkwijze. 
+        We luisteren, analyseren en ontwikkelen samen een strategie die niet alleen zichtbaar is, 
+        maar voelbaar in je resultaten.
+      </p>
+    </div>
+    <div class="werkwijze-afbeelding">
+      <img src="images/zakelijk.png" alt="Zakelijke samenwerking" />
+    </div>
+  </div>
+  </section>
+
+  <section id="cases">
+    <h2>Bewezen resultaten</h2>
+    <p>We hielpen al meer dan 30 bedrijven in e-commerce, coaching en dienstverlening. Benieuwd naar onze aanpak in actie?</p>
+    <div class="case-grid">
+      <div class="case-item">
+        <a href="case-on-sokken.html">
+          <img src="images/ondergoedensokkenkopen-nl.png" alt="Case study ondergoedensokkenkopen.nl" />
+          <div class="case-overlay"><span>Case Study: Ondergoed & Sokken</span></div>
+        </a>
+      </div>
+      <div class="case-item">
+        <a href="alpina-case.html">
+          <img src="images/alpina-ro.png" alt="Case study alpina.ro" />
+          <div class="case-overlay"><span>Case Study: Alpina.ro</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Klaar om te groeien?</h2>
+    <p>Plan een vrijblijvende kennismaking. We denken graag met je mee.</p>
+    <form>
+      <input type="text" placeholder="Naam" required /><br />
+      <input type="email" placeholder="E-mailadres" required /><br />
+      <textarea placeholder="Waar kunnen we je bij helpen?" rows="5" required></textarea><br />
+      <button class="btn-primary" type="submit">Verstuur</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>
+      WNR Marketing • Resultaatgedreven social media advertenties<br />
+      📧 <a href="mailto:wnrads.marketing@gmail.com">wnrads.marketing@gmail.com</a><br />
+      🌍 Remote | 🚀 Volg ons op LinkedIn & Instagram
+    </p>
+  </footer>
+
+  <script>
+function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    window.addEventListener("scroll", () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+
+      const verticalBar = document.getElementById("scroll-progress-vertical");
+      verticalBar.style.height = scrollPercent + "%";
+    });
+
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    function lerpColor(a, b, t) {
+      return a + (b - a) * t;
+    }
+
+    function hexToRgb(hex) {
+      hex = hex.replace('#', '');
+      return {
+        r: parseInt(hex.substring(0,2), 16),
+        g: parseInt(hex.substring(2,4), 16),
+        b: parseInt(hex.substring(4,6), 16)
+      };
+    }
+
+    function rgbToHex(rgb) {
+      const r = Math.round(rgb.r).toString(16).padStart(2, '0');
+      const g = Math.round(rgb.g).toString(16).padStart(2, '0');
+      const b = Math.round(rgb.b).toString(16).padStart(2, '0');
+      return `#${r}${g}${b}`;
+    }
+
+    window.addEventListener("scroll", () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+
+      const progressBar = document.getElementById("progress-bar");
+      progressBar.style.width = scrollPercent + "%";
+
+      const startColor = hexToRgb('#f4a261');
+      const endColor = hexToRgb('#e07b3d');
+      const t = Math.min(scrollPercent / 100, 1);
+
+      const currentColor = {
+        r: lerpColor(startColor.r, endColor.r, t),
+        g: lerpColor(startColor.g, endColor.g, t),
+        b: lerpColor(startColor.b, endColor.b, t),
+      };
+
+      progressBar.style.backgroundColor = rgbToHex(currentColor);
+
+      const verticalBar = document.getElementById("scroll-progress-vertical");
+      verticalBar.style.height = scrollPercent + "%";
+    });
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  </script>
+</body>
+</html>

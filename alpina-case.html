@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case Study - Alpina.ro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+ * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fff;
+      color: #111;
+      line-height: 1.6;
+      padding-top: 80px;
+
+      scrollbar-width: thin;
+      scrollbar-color: #f0a500 #111;
+    }
+    body::-webkit-scrollbar {
+      width: 8px;
+    }
+    body::-webkit-scrollbar-track {
+      background: #111;
+    }
+    body::-webkit-scrollbar-thumb {
+      background-color: #f0a500;
+      border-radius: 4px;
+      border: 2px solid #111;
+    }
+    body::-webkit-scrollbar-thumb:hover {
+      background-color: #c17a00;
+    }
+
+    nav {
+      width: 100%;
+      background-color: #111;
+      color: white;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      height: 80px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    nav .logo img {
+      height: 80px;
+      display: block;
+    }
+
+    nav .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+      line-height: 80px;
+    }
+
+    nav .nav-links a:hover {
+      color: #f0a500;
+    }
+
+    .scroll-progress-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 999;
+      pointer-events: none;
+    }
+    .scroll-progress-bar-vertical {
+      width: 6px;
+      background-color: #f4a261;
+      height: 0%;
+      border-radius: 3px;
+      margin-top: 20px;
+      transition: height 0.2s ease-out;
+      pointer-events: none;
+    }
+    .scroll-to-top {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      margin-top: auto;
+      margin-bottom: 20px;
+      font-size: 12px;
+      color: #f4a261;
+      cursor: pointer;
+      text-align: center;
+      pointer-events: auto;
+      transition: opacity 0.3s;
+    }
+    .scroll-to-top:hover {
+      opacity: 0.7;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fff;
+      color: #111;
+      overflow-x: hidden;
+    }
+
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 5px;
+      background: #f4a261;
+      width: 0%;
+      z-index: 2000;
+      transition: width 0.25s ease-out;
+    }
+
+    .scroll-progress-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 999;
+      pointer-events: none;
+    }
+    .scroll-progress-bar-vertical {
+      width: 6px;
+      background-color: #f4a261;
+      height: 0%;
+      border-radius: 3px;
+      margin-top: 20px;
+      transition: height 0.2s ease-out;
+      pointer-events: none;
+    }
+    .scroll-to-top {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      margin-top: auto;
+      margin-bottom: 20px;
+      font-size: 12px;
+      color: #f4a261;
+      cursor: pointer;
+      text-align: center;
+      pointer-events: auto;
+      transition: opacity 0.3s;
+    }
+    .scroll-to-top:hover {
+      opacity: 0.7;
+    }
+
+
+    nav {
+      background-color: #111;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    nav .logo img {
+      height: 80px;
+      display: block;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover {
+      color: #f4a261;
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 25px;
+      height: 20px;
+      cursor: pointer;
+    }
+    .hamburger div {
+      height: 3px;
+      background: #fff;
+      border-radius: 2px;
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 65px;
+        right: 2rem;
+        background: #111;
+        flex-direction: column;
+        width: 180px;
+        padding: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        display: none;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    header {
+      height: 100vh;
+      background: url('images/wnr-marketing-logo.png') no-repeat center center / contain;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      color: white;
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    a {
+      color: #f0a500;
+      text-decoration: underline;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    .section-banner {
+      background-color: #111;
+      color: #fff;
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+    }
+
+    p, li {
+      font-size: 1.125rem;
+      margin-bottom: 1.5rem;
+    }
+
+    ul {
+      margin-left: 1.5rem;
+      list-style: disc;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background-color: #111;
+      color: #fff;
+      padding: 1rem 2rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 8px;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+      .hero-content p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="scroll-progress-container">
+    <div class="scroll-progress-bar-vertical" id="scroll-progress-vertical"></div>
+    <div class="scroll-to-top" onclick="scrollToTop()">Scroll to top</div>
+  </div>
+
+
+  <nav>
+    <a href="index.html" class="logo">
+      <img src="images/homepagelogo.png" alt="WNR Marketing Logo" />
+    </a>
+    <div class="hamburger" id="hamburger" aria-label="Menu toggle" role="button" tabindex="0">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#diensten">Diensten</a>
+      <a href="index.html#cases">Case Studies</a>
+      <a href="over.html">Over WNR Marketing</a>
+    </div>
+  </nav>
+
+  <header>
+    <div class="hero-content">
+      <h1>Case Study: Alpina.ro - Schoenen voor de Roemeense Markt</h1>
+      <p><strong>Sector:</strong> E-commerce (schoenen, premium segment)</p>
+      <p><strong>Website:</strong> <a href="https://www.alpina.ro" target="_blank">alpina.ro</a></p>
+    </div>
+  </header>
+
+  <section>
+    <div class="section-banner">Uitdaging & Doel</div>
+    <p>Alpina wilde een winnende strategie hebben voor de zomercampagne. Het doel was om de zomercollectie effectief onder de aandacht te brengen met focus op merkoptimalisatie en merkbekendheid. Alpina heeft al een sterke positie op de Roemeense markt, maar wil absolute merkherkenning bereiken als de nummer 1 schoenenshop van Roemenië.</p>
+  </section>
+
+  <section>
+    <div class="section-banner">Aanpak</div>
+    <p>We hebben een volledige funnelstrategie ontworpen. Dankzij Alpina’s sterke positie in de markt konden we gebruikmaken van veel beschikbare data. De funnel was opgebouwd uit drie delen: merkzichtbaarheid, waardevol verkeer, en conversies via prospecting en retargeting.</p>
+    <p>We startten met een ThruPlay-campagne voor video weergaven, gericht op lifestyle branding voor zowel de mannen- als vrouwencollectie. Deze leverde goedkope, warme doelgroepen op.</p>
+    <p>Daarna volgde een campagne gericht op 'View Content' en 'Toevoegen aan Winkelwagentje', die zorgde voor waardevol gedrag en bezoekers met koopintentie.</p>
+    <p>Voor conversie gebruikten we twee cataloguscampagnes, geoptimaliseerd via een slimme Channable-structuur. De doelgroepsegmentatie in de retargeting was gebaseerd op gedrag binnen Meta: video views, view content en add to cart. We gebruikten aangepaste doelgroepen en een retentiegerichte aanpak.</p>
+    <p>Daarnaast besteedden we veel aandacht aan copywriting: voor iedere fase binnen de funnel ontwikkelden we teksten die de juiste snaar raakten. Samen met Alpina bepaalden we ook richtlijnen voor de bijpassende creatives.</p>
+  </section>
+
+  <section>
+    <div class="section-banner">Resultaten</div>
+    <ul>
+      <li>ROAS: van target 7 naar resultaat 13.63</li>
+      <li>CPS: van 13,47 naar 6,89</li>
+      <li>CTR: van 1,24% naar 3,77%</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-banner">Meer weten?</div>
+    <p>Benieuwd wat we voor jouw e-commerce bedrijf kunnen betekenen?</p>
+    <a class="btn-primary" href="/index.html#contact">Neem contact op</a>
+  </section>
+
+  <script>
+ function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    window.addEventListener("scroll", () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+
+      const verticalBar = document.getElementById("scroll-progress-vertical");
+      verticalBar.style.height = scrollPercent + "%";
+    });
+
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

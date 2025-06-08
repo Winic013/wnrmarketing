@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case Study - Ondergoed & Sokken Kopen</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+.section-title {
+  border: 2px solid black;
+  display: inline-block;
+  padding: 8px 16px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+{
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fff;
+      color: #111;
+      line-height: 1.6;
+      padding-top: 80px;
+
+      scrollbar-width: thin;
+      scrollbar-color: #f0a500 #111;
+    }
+    body::-webkit-scrollbar {
+      width: 8px;
+    }
+    body::-webkit-scrollbar-track {
+      background: #111;
+    }
+    body::-webkit-scrollbar-thumb {
+      background-color: #f0a500;
+      border-radius: 4px;
+      border: 2px solid #111;
+    }
+    body::-webkit-scrollbar-thumb:hover {
+      background-color: #c17a00;
+    }
+
+    nav {
+      width: 100%;
+      background-color: #111;
+      color: white;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      height: 80px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    nav .logo img {
+      height: 80px;
+      display: block;
+    }
+
+    nav .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+      line-height: 80px;
+    }
+
+    nav .nav-links a:hover {
+      color: #f0a500;
+    }
+
+    .scroll-progress-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 999;
+      pointer-events: none;
+    }
+    .scroll-progress-bar-vertical {
+      width: 6px;
+      background-color: #f4a261;
+      height: 0%;
+      border-radius: 3px;
+      margin-top: 20px;
+      transition: height 0.2s ease-out;
+      pointer-events: none;
+    }
+    .scroll-to-top {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      margin-top: auto;
+      margin-bottom: 20px;
+      font-size: 12px;
+      color: #f4a261;
+      cursor: pointer;
+      text-align: center;
+      pointer-events: auto;
+      transition: opacity 0.3s;
+    }
+    .scroll-to-top:hover {
+      opacity: 0.7;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fff;
+      color: #111;
+      overflow-x: hidden;
+    }
+
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 5px;
+      background: #f4a261;
+      width: 0%;
+      z-index: 2000;
+      transition: width 0.25s ease-out;
+    }
+
+    .scroll-progress-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 999;
+      pointer-events: none;
+    }
+    .scroll-progress-bar-vertical {
+      width: 6px;
+      background-color: #f4a261;
+      height: 0%;
+      border-radius: 3px;
+      margin-top: 20px;
+      transition: height 0.2s ease-out;
+      pointer-events: none;
+    }
+    .scroll-to-top {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      margin-top: auto;
+      margin-bottom: 20px;
+      font-size: 12px;
+      color: #f4a261;
+      cursor: pointer;
+      text-align: center;
+      pointer-events: auto;
+      transition: opacity 0.3s;
+    }
+    .scroll-to-top:hover {
+      opacity: 0.7;
+    }
+
+    /* Jouw bestaande CSS hier (niet gewijzigd) */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fff;
+      color: #111;
+      line-height: 1.6;
+      padding-top: 80px;
+
+      scrollbar-width: thin;
+      scrollbar-color: #f0a500 #111;
+    }
+    body::-webkit-scrollbar {
+      width: 8px;
+    }
+    body::-webkit-scrollbar-track {
+      background: #111;
+    }
+    body::-webkit-scrollbar-thumb {
+      background-color: #f0a500;
+      border-radius: 4px;
+      border: 2px solid #111;
+    }
+    body::-webkit-scrollbar-thumb:hover {
+      background-color: #c17a00;
+    }
+
+    nav {
+      width: 100%;
+      background-color: #111;
+      color: white;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      height: 80px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    nav .logo img {
+      height: 80px;
+      display: block;
+    }
+    nav .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    nav .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+      line-height: 80px;
+    }
+    nav .nav-links a:hover {
+      color: #f0a500;
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 6px;
+    }
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      border-radius: 2px;
+    }
+    @media (max-width: 768px) {
+      nav .nav-links {
+        position: fixed;
+        top: 80px;
+        right: 0;
+        background-color: #111;
+        height: calc(100vh - 80px);
+        width: 200px;
+        flex-direction: column;
+        padding-top: 1rem;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        gap: 1.5rem;
+      }
+      nav .nav-links.active {
+        transform: translateX(0);
+      }
+      nav .nav-links a {
+        line-height: normal;
+        font-size: 1.2rem;
+        padding: 0.5rem 1rem;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+    header {
+      height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      overflow: hidden;
+      background: url('images/wnr-marketing-logo.png') no-repeat center center / contain;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      color: white;
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    a {
+      color: #f0a500;
+      text-decoration: underline;
+    }
+    section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+    .section-banner {
+      background-color: #111;
+      color: #fff;
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+    }
+    p, li {
+      font-size: 1.125rem;
+      margin-bottom: 1.5rem;
+    }
+    ul {
+      margin-left: 1.5rem;
+      list-style: disc;
+    }
+    .btn-primary {
+      display: inline-block;
+      background-color: #111;
+      color: #fff;
+      padding: 1rem 2rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 8px;
+      margin-top: 2rem;
+    }
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+      .hero-content p {
+        font-size: 1rem;
+      }
+    }
+
+    /* === NIEUW: tekstbox styling === */
+    .tekstbox {
+      background-color: rgba(128, 128, 128, 0.15);
+      padding: 1.25rem 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+      color: #555;
+      box-shadow: 0 0 8px rgba(128, 128, 128, 0.2);
+    }
+
+    /* Styling afbeelding onder uitdaging & doel */
+    .uitdaging-afbeelding {
+      display: block;
+      max-width: 300px;
+      width: 100%;
+      margin: 1rem auto 0 auto;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="scroll-progress-container">
+  <div class="scroll-progress-bar-vertical" id="scroll-progress-vertical"></div>
+  <div class="scroll-to-top" onclick="scrollToTop()">Scroll to top</div>
+</div>
+
+<nav>
+  <a href="index.html" class="logo">
+    <img src="images/homepagelogo.png" alt="WNR Marketing Logo" />
+  </a>
+  <div class="hamburger" id="hamburger">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <div class="nav-links" id="nav-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#diensten">Diensten</a>
+    <a href="index.html#cases">Case Studies</a>
+    <a href="over.html">Over WNR Marketing</a>
+  </div>
+</nav>
+
+<header>
+  <div class="hero-content">
+    <h1>Case Study: Ondergoed & Sokken Kopen</h1>
+    <p><strong>Sector:</strong> E-commerce</p>
+    <p><strong>Website:</strong> <a href="https://www.ondergoedensokkenkopen.nl" target="_blank">ondergoedensokkenkopen.nl</a></p>
+  </div>
+</header>
+
+<section>
+  <div class="section-banner">Uitdaging & Doel</div>
+  <div class="tekstbox">
+    <p>De klant wilde een ROAS van minimaal 4 behalen en de kost per resultaat onder de €10 krijgen. De verkopen waren aanzienlijk gedaald ten opzichte van het voorgaande jaar, wat leidde tot een daling in winstgevendheid.</p>
+  </div>
+  <!-- Afbeelding toegevoegd onder het tekstgedeelte -->
+  <img src="images/ondergoedensokken.png" alt="Ondergoed en Sokken" class="uitdaging-afbeelding" />
+</section>
+
+<section>
+  <div class="section-banner">Aanpak</div>
+  <div class="tekstbox">
+    <p>
+      Bij de start van onze samenwerking hebben we een diepgaande analyse uitgevoerd van het bestaande advertentieaccount en het volledige aankoopproces. Hieruit bleek dat <strong>meer dan 65% van de bezoekers die een product aan hun winkelmand toevoegden, het betaalproces niet afrondde</strong>. Uit verdere analyse kwam naar voren dat <strong>hoge verzendkosten</strong> een belangrijke afhaakreden vormden voor potentiële klanten.
+    </p>
+    <p>
+      Om dit probleem op te lossen, hebben we gekozen voor een strategische aanpassing in de prijsstructuur:
+    </p>
+    <ul>
+      <li>De <strong>productprijzen zijn met €3 verhoogd</strong></li>
+      <li>De <strong>verzendkosten zijn verlaagd van €6.95 naar €2,95</strong></li>
+      <li>Het <strong>gratis verzenden van bestelling boven de €35,- i.p.v €40,-</strong></li>
+    </ul>
+    <p>
+      Deze ogenschijnlijk kleine verandering had een groot psychologisch effect op de klantbeleving. Klanten gaven de voorkeur aan “lagere verzendkosten”, ondanks dat de totale prijs nagenoeg gelijk bleef. Dit resulteerde in een <strong>hogere conversieratio tijdens het afrekenproces</strong>.
+    </p>
+    <p>
+      Vervolgens hebben we een <strong>duidelijke en gestructureerde funnel opgezet</strong>, bestaande uit:
+    </p>
+    <ul>
+      <li><strong>Retargetingcampagnes</strong> gericht op winkelwagenverlaters en paginabezoekers</li>
+      <li><strong>Lookalike audiences</strong> gebaseerd op kopers en nieuwsbriefinschrijvers</li>
+      <li><strong>Brede targeting</strong> om nieuwe doelgroepen aan te trekken via algoritmisch leren</li>
+    </ul>
+    <p>
+      Ten slotte hebben we via A/B-tests geoptimaliseerde advertenties getest op beeld, tekst en call-to-action.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="section-banner">Resultaten</div>
+  <div class="tekstbox">
+    <p>Binnen 2 maanden na het aanpassen van de prijs- en verzendstructuur steeg de ROAS naar 7,8 en daalde de kost per aankoop naar €,50.</p>
+    <p>De conversieratio tijdens het betaalproces verbeterde met 25%.</p>
+    <p>De klant ervaarde een omzetstijging van +40% ten opzichte van het voorgaande kwartaal.</p>
+    <p>Daarnaast is er een betere klanttevredenheid en minder afhakende klanten in het betaalproces.</p>
+  </div>
+</section>
+
+<section>
+  <div class="section-banner">Contact & Vragen</div>
+  <div class="tekstbox">
+    <p>Wil je weten hoe wij jouw webshop ook kunnen laten groeien? Neem vrijblijvend contact met ons op via <a href="mailto:info@wnrmarketing.nl">info@wnrmarketing.nl</a>.</p>
+  </div>
+</section>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Scroll progress vertical bar
+  const scrollBar = document.getElementById('scroll-progress-vertical');
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    scrollBar.style.height = scrollPercent + '%';
+  });
+</script>
+
+</body>
+</html>
