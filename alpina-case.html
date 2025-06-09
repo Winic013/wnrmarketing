@@ -6,6 +6,21 @@
   <title>Case Study - Alpina.ro</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
+}
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 6px;
+    }
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      border-radius: 2px;
+    }
+
+
  * {
       box-sizing: border-box;
       margin: 0;
@@ -334,19 +349,20 @@
 
 
   <nav>
+
     <a href="index.html" class="logo">
       <img src="images/homepagelogo.png" alt="WNR Marketing Logo" />
     </a>
-    <div class="hamburger" id="hamburger" aria-label="Menu toggle" role="button" tabindex="0">
+    <div class="hamburger" id="hamburger">
       <div></div>
       <div></div>
       <div></div>
     </div>
     <div class="nav-links" id="nav-links">
       <a href="index.html">Home</a>
-      <a href="index.html#diensten">Diensten</a>
-      <a href="index.html#cases">Case Studies</a>
-      <a href="over.html">Over WNR Marketing</a>
+      <a href="#diensten">Diensten</a>
+      <a href="#cases">Case Studies</a>
+      <a href="aboutwnr.html">Over WNR Marketing</a>
     </div>
   </nav>
 
@@ -388,6 +404,7 @@
   </section>
 
   <script>
+
  function scrollToTop() {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
@@ -400,6 +417,7 @@
       const verticalBar = document.getElementById("scroll-progress-vertical");
       verticalBar.style.height = scrollPercent + "%";
     });
+
 
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('nav-links');
