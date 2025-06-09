@@ -516,10 +516,7 @@
   </nav>
 
   <header id="top">
-    <div class="hamburger">
-  <span></span>
-  <span></span>
-  <span></span>
+    
 </div>
     <div class="hero-content">
       <h1>WNR Marketing: Jouw raket naar online groei</h1>
@@ -677,6 +674,14 @@ function scrollToTop() {
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
+    document.addEventListener('DOMContentLoaded', function () {
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('nav-links');
+
+      hamburger.addEventListener('click', function () {
+        navLinks.classList.toggle('active');
+      });
+    });
   </script>
 </body>
 </html>
