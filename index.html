@@ -11,7 +11,55 @@
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  flex-wrap: wrap;
+}
+
+    /* Mobiele menu standaard verborgen */
+.nav-links {
+  display: none;
+}
+
+/* Als menu actief is (via JS toegevoegd), dan tonen */
+.nav-links.active {
+  display: block;
+}
+
+.hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 6px;
+    }
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      border-radius: 2px;
+    }
+    @media (max-width: 768px) {
+      nav .nav-links {
+        position: fixed;
+        top: 80px;
+        right: 0;
+        background-color: #111;
+        height: calc(100vh - 80px);
+        width: 200px;
+        flex-direction: column;
+        padding-top: 1rem;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        gap: 1.5rem;
+      }
+      nav .nav-links.active {
+        transform: translateX(0);
+      }
+      nav .nav-links a {
+        line-height: normal;
+        font-size: 1.2rem;
+        padding: 0.5rem 1rem;
+      }
+      .hamburger {
+        display: flex;
+      }
 }
 
 .werkwijze-tekst {
@@ -450,6 +498,7 @@
   </div>
 
   <nav>
+
     <a href="index.html" class="logo">
       <img src="images/homepagelogo.png" alt="WNR Marketing Logo" />
     </a>
@@ -462,11 +511,16 @@
       <a href="index.html">Home</a>
       <a href="#diensten">Diensten</a>
       <a href="#cases">Case Studies</a>
-      <a href="overons.html">Over WNR Marketing</a>
+      <a href="aboutwnr.html">Over WNR Marketing</a>
     </div>
   </nav>
 
   <header id="top">
+    <div class="hamburger">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
     <div class="hero-content">
       <h1>WNR Marketing: Jouw raket naar online groei</h1>
       <p>Wij helpen je bedrijf groeien met slimme social media campagnes — afgestemd op jouw identiteit en ambities.</p>
@@ -547,6 +601,15 @@
   </footer>
 
   <script>
+    const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+
+  
+
 function scrollToTop() {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
