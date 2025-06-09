@@ -11,8 +11,9 @@
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  flex-wrap: wrap;
 }
+
+ }
 
 .werkwijze-tekst {
   flex: 1 1 55%;
@@ -43,8 +44,158 @@
   .werkwijze-afbeelding img {
     width: 80%;
   }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      color: #fff;
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .hero-content p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    .btn-primary {
+      background-color: #f4a261;
+      color: #111;
+      padding: 1rem 2rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .btn-primary:hover {
+      background-color: #e07b3d;
+    }
+
+    section {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    section p {
+      font-size: 1.125rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .card {
+      background-color: #f9f9f9;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+ position: relative;
+  z-index: 1;
+
+
+    }
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('images/achtergrond.png');
+  background-color: ; /* tijdelijk zichtbaar maken */
+  background-size: cover;
+  background-position: center;
+  opacity: 0.4;
+  z-index: 0;
+  border-radius: 16px;
 }
- * {
+
+.card > * {
+  position: relative;
+  z-index: 1;
+}
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .case-item {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .case-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .case-item a {
+      display: block;
+      position: relative;
+      text-decoration: none;
+      color: inherit;
+    }
+    .case-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(30, 30, 30, 0.6);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.4s ease-in-out;
+      font-size: 1.25rem;
+      font-weight: 600;
+      text-align: center;
+      padding: 1rem;
+    }
+    .case-item:hover img {
+      transform: scale(1.02);
+    }
+    .case-item:hover .case-overlay {
+      opacity: 1;
+    }
+
+    footer {
+      background-color: #111;
+      color: #fff;
+      text-align: center;
+      padding: 2rem;
+    }
+    footer a {
+      color: #fff;
+      text-decoration: underline;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-family: 'Inter', sans-serif;
+    }
+.section-title {
+  border: 2px solid black;
+  display: inline-block;
+  padding: 8px 16px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+{
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -210,72 +361,109 @@
       opacity: 0.7;
     }
 
+    /* Jouw bestaande CSS hier (niet gewijzigd) */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fff;
+      color: #111;
+      line-height: 1.6;
+      padding-top: 80px;
+
+      scrollbar-width: thin;
+      scrollbar-color: #f0a500 #111;
+    }
+    body::-webkit-scrollbar {
+      width: 8px;
+    }
+    body::-webkit-scrollbar-track {
+      background: #111;
+    }
+    body::-webkit-scrollbar-thumb {
+      background-color: #f0a500;
+      border-radius: 4px;
+      border: 2px solid #111;
+    }
+    body::-webkit-scrollbar-thumb:hover {
+      background-color: #c17a00;
+    }
+
     nav {
-      background-color: #111;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      position: fixed;
       width: 100%;
+      background-color: #111;
+      color: white;
+      position: fixed;
       top: 0;
       left: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3)
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      height: 80px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
     nav .logo img {
-      height: 50px;
+      height: 80px;
       display: block;
     }
-    .nav-links {
+    nav .nav-links {
       display: flex;
       gap: 2rem;
     }
-    .nav-links a {
-      color: #fff;
+    nav .nav-links a {
+      color: white;
       text-decoration: none;
       font-weight: 600;
       font-size: 1rem;
       transition: color 0.3s ease;
+      line-height: 80px;
     }
-    .nav-links a:hover {
-      color: #f4a261;
+    nav .nav-links a:hover {
+      color: #f0a500;
     }
     .hamburger {
       display: none;
       flex-direction: column;
-      justify-content: space-between;
-      width: 25px;
-      height: 20px;
       cursor: pointer;
+      gap: 6px;
     }
     .hamburger div {
+      width: 25px;
       height: 3px;
-      background: #fff;
+      background-color: white;
       border-radius: 2px;
     }
-
     @media (max-width: 768px) {
-      .nav-links {
+      nav .nav-links {
         position: fixed;
-        top: 65px;
-        right: 2rem;
-        background: #111;
+        top: 80px;
+        right: 0;
+        background-color: #111;
+        height: calc(100vh - 80px);
+        width: 200px;
         flex-direction: column;
-        width: 180px;
-        padding: 1rem;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-        display: none;
+        padding-top: 1rem;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        gap: 1.5rem;
       }
-      .nav-links.active {
-        display: flex;
+      nav .nav-links.active {
+        transform: translateX(0);
+      }
+      nav .nav-links a {
+        line-height: normal;
+        font-size: 1.2rem;
+        padding: 0.5rem 1rem;
       }
       .hamburger {
         display: flex;
       }
     }
-
     header {
       height: 100vh;
       position: relative;
@@ -285,15 +473,13 @@
       text-align: center;
       padding: 2rem;
       overflow: hidden;
-    
       background: url('images/wnr-marketing-logo.png') no-repeat center center / contain;
-      z-index: 0;
     }
     header::before {
       content: "";
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: rgba(0, 0, 0, 0.5);
       z-index: 1;
       pointer-events: none;
     }
@@ -301,7 +487,7 @@
       position: relative;
       z-index: 2;
       max-width: 700px;
-      color: #fff;
+      color: white;
     }
     .hero-content h1 {
       font-size: 3rem;
@@ -309,136 +495,71 @@
       margin-bottom: 1rem;
     }
     .hero-content p {
-      font-size: 1.25rem;
-      margin-bottom: 2rem;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
     }
-    .btn-primary {
-      background-color: #f4a261;
-      color: #111;
-      padding: 1rem 2rem;
-      font-weight: 600;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    .btn-primary:hover {
-      background-color: #e07b3d;
-    }
-
-    section {
-      padding: 5rem 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    section h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-    section p {
-      font-size: 1.125rem;
-      line-height: 1.7;
-      margin-bottom: 2rem;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-    .card {
-      background-color: #f9f9f9;
-      padding: 2rem;
-      border-radius: 16px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
- position: relative;
-  z-index: 1;
-
-
-    }
-.card::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image: url('images/achtergrond.png');
-  background-color: ; /* tijdelijk zichtbaar maken */
-  background-size: cover;
-  background-position: center;
-  opacity: 0.4;
-  z-index: 0;
-  border-radius: 16px;
-}
-
-.card > * {
-  position: relative;
-  z-index: 1;
-}
-
-    .case-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-    .case-item {
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-    .case-item img {
-      width: 100%;
-      height: auto;
-      display: block;
-      transition: transform 0.3s ease;
-    }
-    .case-item a {
-      display: block;
-      position: relative;
-      text-decoration: none;
-      color: inherit;
-    }
-    .case-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(30, 30, 30, 0.6);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transition: opacity 0.4s ease-in-out;
-      font-size: 1.25rem;
-      font-weight: 600;
-      text-align: center;
-      padding: 1rem;
-    }
-    .case-item:hover img {
-      transform: scale(1.02);
-    }
-    .case-item:hover .case-overlay {
-      opacity: 1;
-    }
-
-    footer {
-      background-color: #111;
-      color: #fff;
-      text-align: center;
-      padding: 2rem;
-    }
-    footer a {
-      color: #fff;
+    a {
+      color: #f0a500;
       text-decoration: underline;
     }
-    form input, form textarea {
-      width: 100%;
-      padding: 1rem;
-      margin-bottom: 1rem;
+    section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+    .section-banner {
+      background-color: #111;
+      color: #fff;
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
       border-radius: 8px;
-      border: 1px solid #ccc;
-      font-family: 'Inter', sans-serif;
+    }
+    p, li {
+      font-size: 1.125rem;
+      margin-bottom: 1.5rem;
+    }
+    ul {
+      margin-left: 1.5rem;
+      list-style: disc;
+    }
+    .btn-primary {
+      display: inline-block;
+      background-color: #111;
+      color: #fff;
+      padding: 1rem 2rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 8px;
+      margin-top: 2rem;
+    }
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+      .hero-content p {
+        font-size: 1rem;
+      }
+    }
+
+    /* === NIEUW: tekstbox styling === */
+    .tekstbox {
+      background-color: rgba(128, 128, 128, 0.15);
+      padding: 1.25rem 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+      color: #555;
+      box-shadow: 0 0 8px rgba(128, 128, 128, 0.2);
+    }
+
+    /* Styling afbeelding onder uitdaging & doel */
+    .uitdaging-afbeelding {
+      display: block;
+      max-width: 300px;
+      width: 100%;
+      margin: 1rem auto 0 auto;
+      border-radius: 8px;
     }
   </style>
 </head>
@@ -450,6 +571,7 @@
   </div>
 
   <nav>
+
     <a href="index.html" class="logo">
       <img src="images/homepagelogo.png" alt="WNR Marketing Logo" />
     </a>
@@ -462,11 +584,13 @@
       <a href="index.html">Home</a>
       <a href="#diensten">Diensten</a>
       <a href="#cases">Case Studies</a>
-      <a href="overons.html">Over WNR Marketing</a>
+      <a href="aboutwnr.html">Over WNR Marketing</a>
     </div>
   </nav>
 
   <header id="top">
+    
+</div>
     <div class="hero-content">
       <h1>WNR Marketing: Jouw raket naar online groei</h1>
       <p>Wij helpen je bedrijf groeien met slimme social media campagnes — afgestemd op jouw identiteit en ambities.</p>
@@ -547,6 +671,15 @@
   </footer>
 
   <script>
+    const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+
+  
+
 function scrollToTop() {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
@@ -614,6 +747,24 @@ function scrollToTop() {
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
+    document.addEventListener('DOMContentLoaded', function () {
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('nav-links');
+
+      hamburger.addEventListener('click', function () {
+        navLinks.classList.toggle('active');
+      });
+    });
   </script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+
+    hamburger.addEventListener('click', function () {
+      navLinks.classList.toggle('active');
+    });
+  });
+</script>
 </body>
 </html>
