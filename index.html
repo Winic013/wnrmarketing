@@ -532,7 +532,15 @@ function scrollToTop() {
   const scrollBar = document.getElementById('scroll-progress-vertical');
   window.addEventListener('scroll', () => {
     const scrollTop = window.scrollY;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const docHeight = Math.max(
+  document.body.scrollHeight, 
+  document.documentElement.scrollHeight, 
+  document.body.offsetHeight, 
+  document.documentElement.offsetHeight, 
+  document.body.clientHeight, 
+  document.documentElement.clientHeight
+) - window.innerHeight;
+
 const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
     scrollBar.style.height = scrollPercent + '%';
   });
