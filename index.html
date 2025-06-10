@@ -570,7 +570,7 @@
     <div class="scroll-to-top" onclick="scrollToTop()">Scroll to top</div>
   </div>
 
-  <nav>
+ <nav>
 
     <a href="index.html" class="logo">
       <img src="images/homepagelogo.png" alt="WNR Marketing Logo" />
@@ -582,8 +582,8 @@
     </div>
     <div class="nav-links" id="nav-links">
       <a href="index.html">Home</a>
-      <a href="#diensten">Diensten</a>
-      <a href="#cases">Case Studies</a>
+      <a href="index.html#diensten">Diensten</a>
+      <a href="index.html#cases">Case Studies</a>
       <a href="aboutwnr.html">Over WNR Marketing</a>
     </div>
   </nav>
@@ -671,14 +671,13 @@
   </footer>
 
   <script>
-    const hamburger = document.getElementById('hamburger');
+     const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('nav-links');
 
   hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('active');
   });
 
-  
 
 function scrollToTop() {
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -693,13 +692,7 @@ function scrollToTop() {
       verticalBar.style.height = scrollPercent + "%";
     });
 
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
-
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-
+   
     function lerpColor(a, b, t) {
       return a + (b - a) * t;
     }
@@ -746,25 +739,7 @@ function scrollToTop() {
 
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-    document.addEventListener('DOMContentLoaded', function () {
-      const hamburger = document.getElementById('hamburger');
-      const navLinks = document.getElementById('nav-links');
-
-      hamburger.addEventListener('click', function () {
-        navLinks.classList.toggle('active');
-      });
-    });
-  </script>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
-
-    hamburger.addEventListener('click', function () {
-      navLinks.classList.toggle('active');
-    });
-  });
+    
 </script>
 </body>
 </html>
